@@ -10,41 +10,82 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class ProductListComponent implements OnInit {
 
-
+  
   products: Product[] = [];
   
   currentCategoryId!: number;
 
+  isSearchlevel!: boolean;
+
   constructor(private service : ProductService,
                private activatedRoute: ActivatedRoute) { }
+
+
+
 
   ngOnInit(): void {
      
     this.activatedRoute.paramMap.subscribe(() => {
-      this.listTheProducts();
+      this.listRequestedProducts();
     }); 
   }
 
-  listTheProducts(){
 
 
-    //parameter is available or not
-    const hasCategoryId:boolean=this.activatedRoute.snapshot.paramMap.has('id');
 
-    if(hasCategoryId) {
-      //get the id and convert to number with '+'
-      this.currentCategoryId = +this.activatedRoute.snapshot.paramMap.get('id')!;
+  listRequestedProducts(){
+
+    this.isSearchlevel = this.activatedRoute.snapshot.paramMap.has('keyword');
+
+    if(this.isSearchlevel) {
+      this.handleSearchProducts();
     }
-    else {
-      //if no categoryid available, default is 1
-      this.currentCategoryId = 1;
+    else{
+      this.handleListProducts();
     }
 
-      this.service.getProductsList(this.currentCategoryId).subscribe( 
-        data => {
-          this.products = data;
-        }
-      )
   }
+
+
+
+
+  handleSearchProducts(){
+    const theKeyword : string = this.activatedRoute.snapshot.paramMap.get('keyword')!;
+
+    //search products using keyword
+    this.service.searchProducts(theKeyword).subscribe(
+      data => {
+        this.products = data;
+      }
+    );
+  }
+
+
+
+
+    handleListProducts(){
+
+   //parameter is available or not
+   const hasCategoryId:boolean=this.activatedRoute.snapshot.paramMap.has('id');
+
+   if(hasCategoryId) {
+     //get the id and convert to number with '+'
+     this.currentCategoryId = +this.activatedRoute.snapshot.paramMap.get('id')!;
+   }
+   else {
+     //if no categoryid available, default is 1
+     this.currentCategoryId = 1;
+   }
+
+     this.service.getProductsList(this.currentCategoryId).subscribe( 
+       data => {
+         this.products = data;
+       }
+     )
+
+    }
+
+
+
 
 }

@@ -6,8 +6,11 @@ import {HttpClientModule} from '@angular/common/http';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { ProductService } from './services/product.service';
 import { Routes, RouterModule } from '@angular/router';
+import { CategoryMenuListComponent } from './components/category-menu-list/category-menu-list.component';
+import { ProductSearchComponent } from './components/product-search/product-search.component';
 
 const activeRoutes: Routes = [
+  {path: 'search/:keyword', component: ProductListComponent},
   {path: 'category/:id', component: ProductListComponent},
   {path: 'category', component: ProductListComponent},
   {path: 'products', component: ProductListComponent},
@@ -18,7 +21,9 @@ const activeRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    ProductListComponent
+    ProductListComponent,
+    CategoryMenuListComponent,
+    ProductSearchComponent
   ],
   imports: [
     BrowserModule,
