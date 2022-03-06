@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { CartItem } from 'src/app/classes/cart-item';
 import { Product } from 'src/app/classes/product';
+import { CartService } from 'src/app/services/cart.service';
 import { ProductService } from 'src/app/services/product.service';
 
 @Component({
@@ -25,11 +27,12 @@ export class ProductListComponent implements OnInit {
   thePageSize : number = 5;
   theTotalElements : number = 0;
 
-  previousKeyword :string = null! ; 
+  previousKeyword!: string; 
   
 
   constructor(private service : ProductService,
-               private activatedRoute: ActivatedRoute) { }
+               private activatedRoute: ActivatedRoute,
+               private cartService: CartService) { }
 
 
 
@@ -68,7 +71,7 @@ export class ProductListComponent implements OnInit {
 
     this.previousKeyword = theKeyword;
 
-    console.log(`keyword=${theKeyword}, pagenumber=${this.thePageNumber}`);
+    console.log(`keyword=${theKeyword}, pageNumber=${this.thePageNumber}`);
 
 
     //search products using keyword
@@ -126,6 +129,16 @@ export class ProductListComponent implements OnInit {
       this.thePageSize = pageSize;
       this.thePageNumber = 1;
       this.listRequestedProducts();
+    }
+
+    addToCart(product : Product){
+      console.log(`productName= ${product.productName}, ${product.productUnitPrice} `);
+
+      const theCartItem  = new CartItem(product) ;
+
+      this.cartService.addToCart(theCartItem);
+
+
     }
 
 

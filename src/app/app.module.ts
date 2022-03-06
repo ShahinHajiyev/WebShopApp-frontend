@@ -11,6 +11,7 @@ import { ProductSearchComponent } from './components/product-search/product-sear
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CartStatusComponent } from './components/cart-status/cart-status.component';
 
 const activeRoutes: Routes = [
   {path: 'products/:id', component: ProductDetailsComponent},
@@ -28,7 +29,8 @@ const activeRoutes: Routes = [
     ProductListComponent,
     CategoryMenuListComponent,
     ProductSearchComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    CartStatusComponent
   ],
   imports: [
     BrowserModule,

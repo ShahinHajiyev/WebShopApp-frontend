@@ -3,7 +3,7 @@
     <div class="container-fluid">
       <div class="row">
 
-        <div *ngFor="let temp of products" class="col-md-2">
+        <div *ngFor="let temp of products" class="col-md-4">
 
           <div class="product-box">
 
@@ -17,7 +17,7 @@
               <h1>{{temp.productName}}</h1>
             </a>
             <div class="price">{{temp.productUnitPrice | currency : 'USD'}}</div>
-            <a href="#" class="primary-btn">Add to cart</a>
+            <button (click)="addToCart(temp)" class="btn btn-primary btn-sm">Add to cart</button>
 
 
           </div>
