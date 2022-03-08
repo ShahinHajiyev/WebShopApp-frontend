@@ -3,13 +3,13 @@
     <div class="container-fluid">
       <div class="row">
 
-        <div *ngFor="let temp of products" class="col-md-4">
+        <div *ngFor="let temp of products" class="col-md-3">
 
           <div class="product-box">
 
             <a routerLink="/products/{{temp.productId}}">
 
-              <img src="{{temp.imageURL}}" class="img-responsive">
+              <img src="{{temp.imageURL}}" >
 
             </a>
 
@@ -58,6 +58,7 @@
                 <option>10</option>
                 <option>20</option>
                 <option>50</option>
+                <option>100</option>
               </select>
 
 

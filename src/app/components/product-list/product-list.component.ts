@@ -27,7 +27,7 @@ export class ProductListComponent implements OnInit {
   thePageSize : number = 5;
   theTotalElements : number = 0;
 
-  previousKeyword!: string; 
+  previousKeyword: string = ""; 
   
 
   constructor(private service : ProductService,
@@ -41,7 +41,7 @@ export class ProductListComponent implements OnInit {
      
     this.activatedRoute.paramMap.subscribe(() => {
       this.listRequestedProducts();
-    }); 
+   }); 
   }
 
 
@@ -93,6 +93,7 @@ export class ProductListComponent implements OnInit {
    else {
      //if no categoryid available, default is 1
      this.currentCategoryId = 1;
+    
    }
 
 
@@ -140,6 +141,11 @@ export class ProductListComponent implements OnInit {
 
 
     }
+
+
+    //testing a method ( not related to the current level of app)
+
+
 
 
 }

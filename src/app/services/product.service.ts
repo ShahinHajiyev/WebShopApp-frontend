@@ -12,7 +12,6 @@ import { ProductCategory } from '../classes/product-category';
 export class ProductService {
 
 
-
   private URL  = 'http://localhost:8080/api/products';
 
   private categoryURL = 'http://localhost:8080/api/category';
@@ -64,13 +63,40 @@ return this.httpClient.get<ProductResponse>(searchingURL) ;
     .pipe(map(response => response._embedded.productCategory));
 }
 
+}
+
+interface ProductResponse{
+     _embedded : { products : Product[];
+    },
+
+    page:{
+      size:number,
+      totalElements:number,
+      totalPages:number,
+      number:number
+    }
+}
+
+
+interface ProductCategoryResponse{
+  _embedded : { productCategory : ProductCategory[];
+ }
+}
+
+
+
+
+
+
+
+
 
 
 /*
 
-  private getProducts(pageURL: string): Observable<Product[]> {
+  private getProducts(pageURL: string ): Observable<Product[]> {
     return this.httpClient
-      .get<ProductResponse>(pageURL)
+      .get<ProductResponse>(this.URL)
       .pipe(map(response => response._embedded.products));
   }
 
@@ -91,24 +117,4 @@ searchProducts(keyword: string) : Observable<Product[]>{
  
      return this.getProducts(searchingURL);
    }
-*/
-
-}
-
-interface ProductResponse{
-     _embedded : { products : Product[];
-    },
-
-    page:{
-      size:number,
-      totalElements:number,
-      totalPages:number,
-      number:number
-    }
-}
-
-
-interface ProductCategoryResponse{
-  _embedded : { productCategory : ProductCategory[];
- }
-}
+   */
