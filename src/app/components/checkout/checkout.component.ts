@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormService } from 'src/app/services/form.service';
 
 @Component({
   selector: 'app-checkout',
@@ -13,7 +14,11 @@ export class CheckoutComponent implements OnInit {
   totalPrice: number = 0;
   totalQuantity: number = 0;
 
-  constructor(private formBuilder : FormBuilder) { }
+  creaditCardYear: number[] = [];
+  creditCardMonth: number[] = [];
+
+  constructor(private formBuilder : FormBuilder,
+              private formService: FormService) { }
 
   ngOnInit(): void {
 
@@ -45,6 +50,25 @@ export class CheckoutComponent implements OnInit {
         cvv:['']
    })
   });
+
+
+  //we are gonna populate cards month and year properties;
+  const startMonth: number = new Date().getMonth()+1;
+  console.log("startMonth: " + startMonth);
+
+  this.formService.getCreditCardMonth(startMonth).subscribe(
+    data => {
+      console.log("Obtained month: " + JSON.stringify(data));
+      this.creditCardMonth = data; 
+    }
+  );
+
+  this.formService.getCreditCardYear().subscribe(
+    data => {
+      console.log("Obteined year: " + JSON.stringify(data));
+      this.creaditCardYear;
+    }
+  )
 
   }
 
