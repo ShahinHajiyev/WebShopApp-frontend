@@ -14,7 +14,7 @@ export class CheckoutComponent implements OnInit {
   totalPrice: number = 0;
   totalQuantity: number = 0;
 
-  creaditCardYear: number[] = [];
+  creditCardYear: number[] = [];
   creditCardMonth: number[] = [];
 
   constructor(private formBuilder : FormBuilder,
@@ -54,7 +54,11 @@ export class CheckoutComponent implements OnInit {
 
   //we are gonna populate cards month and year properties;
   const startMonth: number = new Date().getMonth()+1;
+  //const startYear: number = new Date().getFullYear();
+  
+
   console.log("startMonth: " + startMonth);
+  //console.log("YEAR: " + startYear);
 
   this.formService.getCreditCardMonth(startMonth).subscribe(
     data => {
@@ -65,10 +69,10 @@ export class CheckoutComponent implements OnInit {
 
   this.formService.getCreditCardYear().subscribe(
     data => {
-      console.log("Obteined year: " + JSON.stringify(data));
-      this.creaditCardYear;
+      console.log("Obtained year: " + JSON.stringify(data));
+      this.creditCardYear=data;
     }
-  )
+  );
 
   }
 
@@ -86,6 +90,32 @@ export class CheckoutComponent implements OnInit {
     else {
       this.checkoutFormGroup.controls['billingAddress'].reset();
     }
+  }
+
+  handleDate(){
+
+    const cardFormGroup = this.checkoutFormGroup.get('card');
+
+    const currentYear: number = new Date().getFullYear();
+    const selectedYearInForm: number = Number(cardFormGroup?.value.expirationYear);
+
+    //if selected year is the same as current
+    let startMonth: number;
+
+    if(currentYear === selectedYearInForm) {
+      startMonth = new Date().getMonth() + 1;
+    }
+    else {
+      startMonth = 1;
+    }
+
+    this.formService.getCreditCardMonth(startMonth).subscribe(
+      data => {
+        console.log("Expiretion month: " + JSON.stringify(data));
+        this.creditCardMonth = data;
+      }
+    )
+
   }
 
 }
