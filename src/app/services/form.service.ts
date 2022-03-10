@@ -10,7 +10,7 @@ import { State } from '../classes/state';
 export class FormService {
 
   private countryURL = 'http://localhost:8080/api/countries';
-  private stateyURL = 'http://localhost:8080/api/states';
+  private statesURL = 'http://localhost:8080/api/states';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -25,7 +25,7 @@ export class FormService {
 
   getStates(countryCode: string) : Observable<State[]>{
 
-    const searchStateURL = `${this.countryURL}/search/findByCountryCode?code=${countryCode}`;
+    const searchStateURL = `${this.statesURL}/search/findByCountryCode?code=${countryCode}`;
 
     return this.httpClient.get<GetStatesReponse>(searchStateURL).pipe(
       map(response => response._embedded.states)
