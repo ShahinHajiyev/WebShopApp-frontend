@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Country } from 'src/app/classes/country';
 import { State } from 'src/app/classes/state';
 import { FormService } from 'src/app/services/form.service';
+import { MyEmptySpaceValidator } from 'src/app/validators/my-empty-space-validator';
 
 @Component({
   selector: 'app-checkout',
@@ -30,9 +31,10 @@ export class CheckoutComponent implements OnInit {
 
    this.checkoutFormGroup = this.formBuilder.group({
      customer: this.formBuilder.group({
-       firstName: [''],
-       lastName: [''],
-       email: ['']
+       firstName: new FormControl('',[Validators.required, Validators.minLength(2), MyEmptySpaceValidator.compensateWhiteSpace]),
+       lastName:  new FormControl('',[Validators.required, Validators.minLength(2), MyEmptySpaceValidator.compensateWhiteSpace]),
+       email:     new FormControl('',[Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$'),
+                                                                                    MyEmptySpaceValidator.compensateWhiteSpace])
      }),
      shippingAddress:this.formBuilder.group({
        streetAddress:[''],
@@ -87,23 +89,46 @@ export class CheckoutComponent implements OnInit {
     }
   );
 
-
-
   }
+
+
+  //this will be used by html template to access to the form control for checking the status of the form control
+  get firstName(){ return this.checkoutFormGroup.get('customer.firstName'); }
+  get lastName() { return this.checkoutFormGroup.get('customer.lastName');  }
+  get email()    { return this.checkoutFormGroup.get('customer.email');     }
+
+
+
 
   onSubmit(){
     console.log('Just Display');
+
+    if(this.checkoutFormGroup.invalid){
+      //triggers the display of the error messages
+      this.checkoutFormGroup.markAllAsTouched();
+    }
     console.log(this.checkoutFormGroup.get('customer')?.value);
     console.log(this.checkoutFormGroup.get('customer')?.value.email);
+    console.log("Shipping address " + this.checkoutFormGroup.get('shippingAddress')?.value.country.name);
+    console.log("State is: " + this.checkoutFormGroup.get('shippingAddress')?.value.state.name);
+
+
   }
 
   copyShippingToBilling(event){
 
     if(event.target.checked) {
-      this.checkoutFormGroup.controls['billingAddress'].setValue(this.checkoutFormGroup.controls['shippingAddress'].value)
+      this.checkoutFormGroup.controls['billingAddress']
+      .setValue(this.checkoutFormGroup.controls['shippingAddress'].value);
+
+      //bug for not copying drop down list from shipping to billing
+      this.billingAdddressState = this.shippingAdddressState;
     }
     else {
       this.checkoutFormGroup.controls['billingAddress'].reset();
+      
+      //for bug fixing
+      this.billingAdddressState = [];
     }
   }
 
@@ -140,8 +165,8 @@ export class CheckoutComponent implements OnInit {
     const countryCode = formGroup.value.country.code;
     const countryName = formGroup.value.country.name;
 
-    console.log(`{formGroupName} country code: ${countryCode}`);
-    console.log(`{formGroupName} country code: ${countryName}`);
+    console.log(`${formGroupName} country code: ${countryCode}`);
+    console.log(`${formGroupName} country code: ${countryName}`);
 
     this.formService.getStates(countryCode).subscribe(
       data => {
