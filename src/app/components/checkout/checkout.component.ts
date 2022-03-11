@@ -44,18 +44,18 @@ export class CheckoutComponent implements OnInit {
        country:       new FormControl('',[Validators.required])
      }),
       billingAddress:this.formBuilder.group({
-        streetAddress:[''],
-        city:[''],
-        state:[''],
-        postalCode:[''],
-        country:['']
+        streetAddress: new FormControl('',[Validators.required, Validators.minLength(2), MyEmptySpaceValidator.compensateWhiteSpace]),
+        city:          new FormControl('',[Validators.required, Validators.minLength(2), MyEmptySpaceValidator.compensateWhiteSpace]),
+        state:         new FormControl('',[Validators.required]),
+        postalCode:    new FormControl('',[Validators.required, Validators.minLength(2), MyEmptySpaceValidator.compensateWhiteSpace]),
+        country:       new FormControl('',[Validators.required])
       }),
       card:this.formBuilder.group({
-        cardNumber:[''],
-        cardName:[''],
+        cardNumber: new FormControl('',[Validators.pattern('[0-9]{16}'), Validators.required]),
+        cardName:   new FormControl('',[Validators.required, Validators.minLength(4), MyEmptySpaceValidator.compensateWhiteSpace]),
         expirationMonth:[''],
         expirationYear:[''],
-        cvv:['']
+        cvv:       new FormControl('',[Validators.pattern('[0-9]{3}'), Validators.required])
    })
   });
 
@@ -97,11 +97,21 @@ export class CheckoutComponent implements OnInit {
   get lastName() { return this.checkoutFormGroup.get('customer.lastName');  }
   get email()    { return this.checkoutFormGroup.get('customer.email');     }
 
-  get shippingAddressStreetAddress()    { return this.checkoutFormGroup.get('shippingAddress.streetAddress');     }
-  get shippingAddressCity()    { return this.checkoutFormGroup.get('shippingAddress.city');     }
-  get shippingAddressState()    { return this.checkoutFormGroup.get('shippingAddress.state');     }
-  get shippingAddressPostalCode()    { return this.checkoutFormGroup.get('shippingAddress.postalCode');     }
-  get shippingAddressCountry()    { return this.checkoutFormGroup.get('shippingAddress.country');     }
+  get shippingAddressStreetAddress()    { return this.checkoutFormGroup.get('shippingAddress.streetAddress');  }
+  get shippingAddressCity()             { return this.checkoutFormGroup.get('shippingAddress.city');           }
+  get shippingAddressState()            { return this.checkoutFormGroup.get('shippingAddress.state');          }
+  get shippingAddressPostalCode()       { return this.checkoutFormGroup.get('shippingAddress.postalCode');     }
+  get shippingAddressCountry()          { return this.checkoutFormGroup.get('shippingAddress.country');        }
+
+  get billingAddressStreetAddress()    { return this.checkoutFormGroup.get('billingAddress.streetAddress');    }
+  get billingAddressCity()    { return this.checkoutFormGroup.get('billingAddress.city');                      }
+  get billingAddressState()    { return this.checkoutFormGroup.get('billingAddress.state');                    }
+  get billingAddressPostalCode()    { return this.checkoutFormGroup.get('billingAddress.postalCode');          }
+  get billingAddressCountry()    { return this.checkoutFormGroup.get('billingAddress.country');                }
+
+  get cardNumber()    { return this.checkoutFormGroup.get('card.cardNumber');     }
+  get cardName()      { return this.checkoutFormGroup.get('card.cardName');       }
+  get cardCvv()       { return this.checkoutFormGroup.get('card.cvv');            }
 
 
 
