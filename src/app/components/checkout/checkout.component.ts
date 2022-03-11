@@ -37,11 +37,11 @@ export class CheckoutComponent implements OnInit {
                                                                                     MyEmptySpaceValidator.compensateWhiteSpace])
      }),
      shippingAddress:this.formBuilder.group({
-       streetAddress:[''],
-       city:[''],
-       state:[''],
-       postalCode:[''],
-       country:['']
+       streetAddress: new FormControl('',[Validators.required, Validators.minLength(2), MyEmptySpaceValidator.compensateWhiteSpace]),
+       city:          new FormControl('',[Validators.required, Validators.minLength(2), MyEmptySpaceValidator.compensateWhiteSpace]),
+       state:         new FormControl('',[Validators.required]),
+       postalCode:    new FormControl('',[Validators.required, Validators.minLength(2), MyEmptySpaceValidator.compensateWhiteSpace]),
+       country:       new FormControl('',[Validators.required])
      }),
       billingAddress:this.formBuilder.group({
         streetAddress:[''],
@@ -96,6 +96,12 @@ export class CheckoutComponent implements OnInit {
   get firstName(){ return this.checkoutFormGroup.get('customer.firstName'); }
   get lastName() { return this.checkoutFormGroup.get('customer.lastName');  }
   get email()    { return this.checkoutFormGroup.get('customer.email');     }
+
+  get shippingAddressStreetAddress()    { return this.checkoutFormGroup.get('shippingAddress.streetAddress');     }
+  get shippingAddressCity()    { return this.checkoutFormGroup.get('shippingAddress.city');     }
+  get shippingAddressState()    { return this.checkoutFormGroup.get('shippingAddress.state');     }
+  get shippingAddressPostalCode()    { return this.checkoutFormGroup.get('shippingAddress.postalCode');     }
+  get shippingAddressCountry()    { return this.checkoutFormGroup.get('shippingAddress.country');     }
 
 
 

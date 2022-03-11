@@ -14,7 +14,8 @@
                                 <input formControlName="firstName" type="text">
                                 <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)"
                                     class="alert alert-danger mt-1">
-                                    <div *ngIf="firstName.errors['required'] || firstName.errors['compensateWhiteSpace']">
+                                    <div
+                                        *ngIf="firstName.errors['required'] || firstName.errors['compensateWhiteSpace']">
                                         First Name is required
                                     </div>
                                     <div *ngIf="firstName.errors['minlength']">
@@ -38,7 +39,6 @@
                                     <div *ngIf="lastName.errors['minlength']">
                                         lastName Name should be 2 charachters
                                     </div>
-
                                 </div>
                             </div>
                         </div>
@@ -49,16 +49,16 @@
                             <div class="input-space">
                                 <input formControlName="email" type="text">
                                 <div *ngIf="email.invalid && (email.dirty || email.touched)"
-                                class="alert alert-danger mt-1">
-                                <div *ngIf="email.errors['required']">
-                                    Email is required
-                                </div>
-                                <div *ngIf="email.errors['pattern']">
-                                    Insert a valid email address format
-                                    ex.. some@gmail.com
-                                </div>
+                                    class="alert alert-danger mt-1">
+                                    <div *ngIf="email.errors['required']">
+                                        Email is required
+                                    </div>
+                                    <div *ngIf="email.errors['pattern']">
+                                        Insert a valid email address format
+                                        ex.. some@gmail.com
+                                    </div>
 
-                            </div>
+                                </div>
 
                             </div>
                         </div>
@@ -73,6 +73,13 @@
                         <div class="col-md-9">
                             <div class="input-space">
                                 <input formControlName="streetAddress" type="text">
+                                <div *ngIf="shippingAddressStreetAddress.invalid && (shippingAddressStreetAddress.dirty || shippingAddressStreetAddress.touched)"
+                                    class="alert alert-danger mt-1">
+                                    <div
+                                        *ngIf="shippingAddressStreetAddress.errors['required'] || shippingAddressStreetAddress.errors['compensateWhiteSpace']">
+                                        Street is required
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -81,6 +88,13 @@
                         <div class="col-md-9">
                             <div class="input-space">
                                 <input formControlName="city" type="text">
+                                <div *ngIf="shippingAddressCity.invalid && (shippingAddressCity.dirty || shippingAddressCity.touched)"
+                                    class="alert alert-danger mt-1">
+                                    <div
+                                        *ngIf="shippingAddressCity.errors['required'] || shippingAddressCity.errors['compensateWhiteSpace']">
+                                        City is required
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -93,6 +107,12 @@
                                         {{country.name}}
                                     </option>
                                 </select>
+                                <div *ngIf="shippingAddressCountry.invalid && (shippingAddressCountry.dirty || shippingAddressCountry.touched)"
+                                    class="alert alert-danger mt-1">
+                                    <div *ngIf="shippingAddressCountry.errors['required']">
+                                        Country is required
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -105,6 +125,12 @@
                                         {{state.name}}
                                     </option>
                                 </select>
+                                <div *ngIf="shippingAddressState.invalid && (shippingAddressState.dirty || shippingAddressState.touched)"
+                                    class="alert alert-danger mt-1">
+                                    <div *ngIf="shippingAddressState.errors['required']">
+                                        State/Province is required
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -113,6 +139,12 @@
                         <div class="col-md-9">
                             <div class="input-space">
                                 <input formControlName="postalCode" type="text">
+                                <div *ngIf="shippingAddressPostalCode.invalid && (shippingAddressPostalCode.dirty || shippingAddressPostalCode.touched)"
+                                    class="alert alert-danger mt-1">
+                                    <div *ngIf="shippingAddressPostalCode.errors['required']">
+                                        Zip code is required
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
