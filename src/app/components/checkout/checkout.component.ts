@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Country } from 'src/app/classes/country';
 import { State } from 'src/app/classes/state';
+import { CartService } from 'src/app/services/cart.service';
 import { FormService } from 'src/app/services/form.service';
 import { MyEmptySpaceValidator } from 'src/app/validators/my-empty-space-validator';
 
@@ -25,9 +26,12 @@ export class CheckoutComponent implements OnInit {
   billingAdddressState: State[] = [];
 
   constructor(private formBuilder : FormBuilder,
-              private formService: FormService) { }
+              private formService: FormService,
+              private cartService: CartService) { }
 
   ngOnInit(): void {
+
+    this.reviewCartDetails();
 
    this.checkoutFormGroup = this.formBuilder.group({
      customer: this.formBuilder.group({
@@ -89,6 +93,22 @@ export class CheckoutComponent implements OnInit {
     }
   );
 
+  }
+  reviewCartDetails() {
+
+    //subscribe to fields in cart service
+    this.cartService.totalQuantity.subscribe(
+      data => {
+        this.totalQuantity = data
+      }
+    );
+
+    this.cartService.totalPrice.subscribe(
+      data => {
+        this.totalPrice = data
+      }
+    );
+    
   }
 
 
