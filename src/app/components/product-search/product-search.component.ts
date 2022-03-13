@@ -11,6 +11,7 @@ export class ProductSearchComponent implements OnInit {
   constructor(private router : Router) { }
 
   ngOnInit(): void {
+    
   }
 
 

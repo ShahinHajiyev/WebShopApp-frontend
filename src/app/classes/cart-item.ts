@@ -2,7 +2,7 @@ import { Product } from "./product";
 
 export class CartItem {
 
-    id: number;
+    id: string;
     name: string;
     imageURL: string;
     piecePrice: number;
@@ -11,7 +11,7 @@ export class CartItem {
 
     constructor(product:Product) {
 
-        this.id = product.productId!;
+        this.id = product.productId;
         this.name = product.productName;
         this.imageURL = product.imageURL;
         this.piecePrice = product.productUnitPrice;

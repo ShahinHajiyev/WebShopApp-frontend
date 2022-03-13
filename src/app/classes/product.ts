@@ -2,7 +2,7 @@
 
 export class Product {
 
-    productId : number | undefined;
+    productId : string | undefined;
     sku!: string;
     productName:string = "";
     productDescription:string = "";
