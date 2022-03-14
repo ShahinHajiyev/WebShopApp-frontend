@@ -2,16 +2,16 @@
 
 export class Product {
 
-    productId : string | undefined;
+    productId : string;
     sku!: string;
-    productName:string = "";
-    productDescription:string = "";
-    productUnitPrice:number = 0;
-    imageURL:string = "";
-    active:boolean = true;
-    piecesInStock:number= 0;
-    creationDate: Date | undefined ;
-    lastUpdate:Date | undefined;
+    productName:string;
+    productDescription:string;
+    productUnitPrice:number;
+    imageURL:string;
+    active:boolean;
+    piecesInStock:number;
+    creationDate: Date;
+    lastUpdate:Date;
 
 
 
