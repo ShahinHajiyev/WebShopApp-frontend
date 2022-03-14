@@ -72,14 +72,14 @@
                         <div class="col-md-2"><label>Street</label></div>
                         <div class="col-md-9">
                             <div class="input-space">
-                                <input formControlName="streetAddress" type="text">
-                                <div *ngIf="shippingAddressStreetAddress.invalid && (shippingAddressStreetAddress.dirty || shippingAddressStreetAddress.touched)"
+                                <input formControlName="street" type="text">
+                                <div *ngIf="shippingAddressStreet.invalid && (shippingAddressStreet.dirty || shippingAddressStreet.touched)"
                                     class="alert alert-danger mt-1">
                                     <div
-                                        *ngIf="shippingAddressStreetAddress.errors['required'] || shippingAddressStreetAddress.errors['compensateWhiteSpace']">
+                                        *ngIf="shippingAddressStreet.errors['required'] || shippingAddressStreet.errors['compensateWhiteSpace']">
                                         Street is required
                                     </div>
-                                    <div *ngIf="shippingAddressStreetAddress.errors['minlength']">
+                                    <div *ngIf="shippingAddressStreet.errors['minlength']">
                                         Minimum 4 charachters
                                     </div>
                                 </div>
@@ -144,13 +144,13 @@
                         <div class="col-md-2"><label>Postal/Zip Code</label></div>
                         <div class="col-md-9">
                             <div class="input-space">
-                                <input formControlName="postalCode" type="text">
-                                <div *ngIf="shippingAddressPostalCode.invalid && (shippingAddressPostalCode.dirty || shippingAddressPostalCode.touched)"
+                                <input formControlName="zipCode" type="text">
+                                <div *ngIf="shippingAddressZipCode.invalid && (shippingAddressZipCode.dirty || shippingAddressZipCode.touched)"
                                     class="alert alert-danger mt-1">
-                                    <div *ngIf="shippingAddressPostalCode.errors['required']">
+                                    <div *ngIf="shippingAddressZipCode.errors['required']">
                                         Zip code is required
                                     </div>
-                                    <div *ngIf="shippingAddressPostalCode.errors['minlength']">
+                                    <div *ngIf="shippingAddressZipCode.errors['minlength']">
                                         Minimum 4 charachters
                                     </div>
                                 </div>
@@ -177,14 +177,14 @@
                         <div class="col-md-2"><label>Street</label></div>
                         <div class="col-md-9">
                             <div class="input-space">
-                                <input formControlName="streetAddress" type="text">
-                                <div *ngIf="billingAddressStreetAddress.invalid && (billingAddressStreetAddress.dirty || billingAddressStreetAddress.touched)"
+                                <input formControlName="street" type="text">
+                                <div *ngIf="billingAddressStreet.invalid && (billingAddressStreet.dirty || billingAddressStreet.touched)"
                                     class="alert alert-danger mt-1">
                                     <div
-                                        *ngIf="billingAddressStreetAddress.errors['required'] || billingAddressStreetAddress.errors['compensateWhiteSpace']">
+                                        *ngIf="billingAddressStreet.errors['required'] || billingAddressStreet.errors['compensateWhiteSpace']">
                                         Street is required
                                     </div>
-                                    <div *ngIf="billingAddressStreetAddress.errors['minlength']">
+                                    <div *ngIf="billingAddressStreet.errors['minlength']">
                                         Minimum 4 charachters
                                     </div>
                                 </div>
@@ -250,13 +250,13 @@
                         <div class="col-md-2"><label>Postal/Zip Code</label></div>
                         <div class="col-md-9">
                             <div class="input-space">
-                                <input formControlName="postalCode" type="text">
-                                <div *ngIf="billingAddressPostalCode.invalid && (billingAddressPostalCode.dirty || billingAddressPostalCode.touched)"
+                                <input formControlName="zipCode" type="text">
+                                <div *ngIf="billingAddressZipCode.invalid && (billingAddressZipCode.dirty || billingAddressZipCode.touched)"
                                     class="alert alert-danger mt-1">
-                                    <div *ngIf="billingAddressPostalCode.errors['required']">
+                                    <div *ngIf="billingAddressZipCode.errors['required']">
                                         Zip code is required
                                     </div>
-                                    <div *ngIf="billingAddressPostalCode.errors['minlength']">
+                                    <div *ngIf="billingAddressZipCode.errors['minlength']">
                                         Minimum 4 charachters
                                     </div>
                                 </div>
