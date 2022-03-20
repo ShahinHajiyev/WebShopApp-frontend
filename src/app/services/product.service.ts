@@ -43,6 +43,8 @@ getProductsListPaginate(thePage : number,
 const searchingURL = `${this.URL}/search/findByCategoryId?id=${theCategoryId}`
               + `&page=${thePage}&size=${thePageSize}`;
 
+              console.log(`GETTING PRODUCTS   ${searchingURL}`);
+
 return this.httpClient.get<ProductResponse>(searchingURL) ;
 }
 
