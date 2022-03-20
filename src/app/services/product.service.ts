@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {  map, Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { Product } from '../classes/product';
 import { ProductCategory } from '../classes/product-category';
 
@@ -12,9 +13,9 @@ import { ProductCategory } from '../classes/product-category';
 export class ProductService {
 
 
-  private URL  = 'http://localhost:8080/api/products';
+  private URL  = environment.webshopApiUrl + '/products';
 
-  private categoryURL = 'http://localhost:8080/api/category';
+  private categoryURL = environment.webshopApiUrl + '/category';
 
   constructor(private httpClient : HttpClient) { }
 

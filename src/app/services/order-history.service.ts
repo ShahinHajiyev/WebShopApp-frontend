@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { OrderHistory } from '../classes/order-history';
 
 @Injectable({
@@ -8,7 +9,7 @@ import { OrderHistory } from '../classes/order-history';
 })
 export class OrderHistoryService {
 
-  private orderURL = 'http://localhost:8080/api/orders';
+  private orderURL = environment.webshopApiUrl + '/orders';
 
   constructor(private httpClient: HttpClient) { }
 
