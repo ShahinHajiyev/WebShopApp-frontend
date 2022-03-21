@@ -268,82 +268,22 @@
 
                 <!--CARD DETAILS-->
 
+                <!--Stripe elements section-->
+
                 <div formGroupName="card" class="form-area">
-                    <h3>Card</h3>
-                    <div class="row">
-                        <div class="col-md-2"><label>Card Number</label></div>
-                        <div class="col-md-9">
-                            <div class="input-space">
-                                <input formControlName="cardNumber" type="text">
-                                <div *ngIf="cardNumber.invalid && (cardNumber.dirty || cardNumber.touched)"
-                                    class="alert alert-danger mt-1">
-                                    <div *ngIf="cardNumber.errors['required']">
-                                        Card number is required.
-                                    </div>
-                                    <div *ngIf="cardNumber.errors['pattern']">
-                                        Card number should be 16 charachters long, digits only.
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-2"><label>Name on the card</label></div>
-                        <div class="col-md-9">
-                            <div class="input-space">
-                                <input formControlName="cardName" type="text">
-                                <div *ngIf="cardName.invalid && (cardName.dirty || cardName.touched)"
-                                    class="alert alert-danger mt-1">
-                                    <div *ngIf="cardName.errors['required']">
-                                        Name is required
-                                    </div>
-                                    <div *ngIf="cardName.errors['minlength']">
-                                        Minimum 4 charachters
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-2"><label>Expiration Month</label></div>
-                        <div class="col-md-9">
-                            <div class="input-space">
-                                <select formControlName="expirationMonth">
-                                    <option *ngFor="let currentMonth of creditCardMonth">
-                                        {{currentMonth}}
-                                    </option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-2"><label>Expiration Year</label></div>
-                        <div class="col-md-9">
-                            <div class="input-space">
-                                <select formControlName="expirationYear" (change)="handleDate()">
-                                    <option *ngFor="let year of creditCardYear">{{year}}</option>
-                                </select>
-                            </div>
-                        </div>
+
+                    <h3>Credit or Debit card</h3>
+
+                    <div id="card-element">
+                        <!--placeholder-->
                     </div>
 
-                    <div class="row">
-                        <div class="col-md-2"><label>Security Code</label></div>
-                        <div class="col-md-9">
-                            <div class="input-space">
-                                <input formControlName="cvv" type="text">
-                                <div *ngIf="cardCvv.invalid && (cardCvv.dirty || cardCvv.touched)"
-                                class="alert alert-danger mt-1">
-                                <div *ngIf="cardCvv.errors['required']">
-                                    Security Code is required
-                                </div>
-                                <div *ngIf="cardCvv.errors['pattern']">
-                                    Security Code should be 3 charachters long, digits only
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                    </div>
+                    <!--Display errors-->
+
+                    <div id="card-errors" class="displayError.textContent!=='': 'alert alert-danger mt-1"></div>
+
+
+
                 </div>
 
                 <!--order-->

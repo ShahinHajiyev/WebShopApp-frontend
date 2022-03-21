@@ -27,7 +27,7 @@ export class ProductListComponent implements OnInit {
   thePageSize : number = 5;
   theTotalElements : number = 0;
 
-  previousKeyword: string = ""; 
+  previousKeyword: string = null; 
   
 
   constructor(private service : ProductService,
@@ -61,7 +61,7 @@ export class ProductListComponent implements OnInit {
 
 
   handleSearchProducts(){
-    const theKeyword : string = this.activatedRoute.snapshot.paramMap.get('keyword')!;
+    const theKeyword : string = this.activatedRoute.snapshot.paramMap.get('keyword');
 
     //if keywords are different we are gonna set the page number to 1
 
@@ -75,7 +75,7 @@ export class ProductListComponent implements OnInit {
 
 
     //search products using keyword
-    this.service.searchProductsPaginate(this.thePageNumber -1,
+    this.service.searchProductsPaginate(this.thePageNumber-1,
                                         this.thePageSize,
                                         theKeyword).subscribe(this.processResult());
   }
@@ -103,9 +103,10 @@ export class ProductListComponent implements OnInit {
 
    //if categoryid is different than previous then reset page number to back to 1
 
-   if(this.previousCategoryId != this.currentCategoryId)
+   if(this.previousCategoryId != this.currentCategoryId) {
 
    this.previousCategoryId = this.currentCategoryId;
+  }
    console.log(`currentCategoryId = ${this.currentCategoryId}, thePageNumber=${this.thePageNumber}`)
 
 

@@ -26,7 +26,7 @@ export class ProductService {
 
 //we need URL  for keyword, page and sizee
  
-const searchingURL = `${this.URL}/search/findByProductNameContaining?name=${theKeyword}`;
+const searchingURL = `${this.URL}/search/findByProductNameContaining?name=${theKeyword}`
                 + `&page=${thePage}&size=${thePageSize}`;
 
 return this.httpClient.get<ProductResponse>(searchingURL) ;
