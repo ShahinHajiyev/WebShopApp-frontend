@@ -273,6 +273,7 @@ export class CheckoutComponent implements OnInit {
     //populate purchase -   order and order items
     purchase.order = order;
     purchase.orderItems = orderItems;
+    this.paymentInfo.receiptEmail = purchase.customer.email;
 
     //compute payment info
     this.paymentInfo.amount = Math.round(this.totalPrice * 100);
