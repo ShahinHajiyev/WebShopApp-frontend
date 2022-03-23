@@ -1,82 +1,79 @@
-<div class="container-md con">
+<div class="main-content">
+  <div class="section-content section-content-p30">
+    <div class="container-fluid">
 
 
-    <div class="row">
+      <div class="row">
 
+        <div *ngFor="let temp of products" class="col col-md-4">
 
-        <div *ngFor="let temp of products" class="col-lg-3">
+          <div class="product-box">
 
-            <div class="product-box">
+            <a routerLink="/products/{{temp.productId}}">
 
-                <a routerLink="/products/{{temp.productId}}">
+              <img src="{{temp.imageURL}}" width="400" height="400">
 
-                    <img src="{{temp.imageURL}}">
+            </a>
 
-                </a>
-
-                <a routerLink="/products/ {{temp.productId}}">
-                    <h1>{{temp.productName}}</h1>
-                </a>
-                <div class="price">{{temp.productUnitPrice | currency : 'USD'}}</div>
-                <button (click)="addToCart(temp)" class="btn btn-primary btn-sm">Add to cart</button>
-
-
-            </div>
+            <a routerLink="/products/ {{temp.productId}}">
+              <h1>{{temp.productName}}</h1>
+            </a>
+            
+              <div class="price">{{temp.productUnitPrice | currency : 'USD'}}</div>
+              <!--<button (click)="addToCart(temp)" class="btn btn-primary btn-sm">Add to cart</button>-->
+           
+          </div>
         </div>
-
-
-
-
-
 
         <!--if products empty then display a message-->
         <div *ngIf="products?.length == 0" class="alert alert-warning col-md-12" role="alert">
 
-            No products found.
+          No products found.
         </div>
 
-    </div>
+      </div>
+
+      <!--begin footer-->
 
 
-    <!--begin footer-->
-
-
-    <div class="footer-pagination">
+      <div class="footer-pagination">
         <div class="row">
-            <div class="col col-sm-6"></div>
-            <div class="col col-sm-6">
-                <div class="row">
-                    <div class="col col-md-9" style="padding-left: 30%">
-                        <ngb-pagination [(page)]="thePageNumber" [pageSize]="thePageSize" [boundaryLinks]="true"
-                            [collectionSize]="theTotalElements" (pageChange)="listRequestedProducts()">
+          <div class="col col-sm-6"></div>
+          <div class="col col-sm-6">
+            <div class="row">
+              <div class="col col-md-9" style="padding-left: 0;  color: #a70202;">
+                <ngb-pagination [(page)]="thePageNumber" [pageSize]="thePageSize" [boundaryLinks]="true"
+                  [collectionSize]="theTotalElements" [maxSize]="5" (pageChange)="listRequestedProducts()">
 
-                        </ngb-pagination>
-                    </div>
-
-
-                    <div class="col-md-3 mt-2" style="text-align: right;">
-                        <span class="mr-2">Page size</span>
-
-                        <select #mySelect (change)="updatePageSize(+mySelect.value)">
-                            <option selected="true">5</option>
-                            <option>10</option>
-                            <option>20</option>
-                            <option>50</option>
-                            <option>100</option>
-                        </select>
+                </ngb-pagination>
+              </div>
 
 
+              <div class="col-md-3 mt-2" style="text-align: right;">
+                <span class="mr-2">Page size</span>
 
-                    </div>
+                <select #mySelect (change)="updatePageSize(+mySelect.value)">
+                  <option selected="true">5</option>
+                  <option>10</option>
+                  <option>20</option>
+                  <option>50</option>
+                  <option>100</option>
+                </select>
 
 
-                </div>
+
+              </div>
+
+
             </div>
+          </div>
         </div>
+      </div>
+
+
+
+
+      <!--end footer-->
     </div>
-
-
-
-
-    <!--end footer-->
+  </div>
 </div>

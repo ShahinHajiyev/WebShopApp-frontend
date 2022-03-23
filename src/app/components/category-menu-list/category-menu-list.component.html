@@ -2,11 +2,22 @@
     <nav >
         <ul >
 
-            <li *ngFor="let temp of productCategories">
-                <a routerLink="/category/{{temp.id}}" routerLinkActive="active-link">
+            <h3>Categories</h3>
+            <li *ngFor="let temp of productCategories" >
+                <a routerLink="/category/{{temp.id}}" routerLinkActive="active-link" class="icons">
 
-                    {{temp.categoryName}}
+                    
+                    <img *ngIf="temp.id===1" src="\assets\images\coatt.png">
+                    <img *ngIf="temp.id===2" src="\assets\images\shoes.png">
+                    <img *ngIf="temp.id===3" src="\assets\images\trousers.png">
+                    <img *ngIf="temp.id===4" src="\assets\images\womanshoes.png">
+                    <img *ngIf="temp.id===5" src="\assets\images\makeup.png">
+
+                    {{temp.categoryName}} 
+                
+                    
                 </a>
+                
             </li>
            
         </ul>

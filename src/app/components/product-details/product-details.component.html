@@ -1,16 +1,28 @@
 <div class="detail-section">
     <div class="container-fluid">
-        <img src="{{product.imageURL}}" class="detail-img">
-        <h3>{{product.productName}}</h3>
-        <div class="price">{{product.productUnitPrice | currency : 'USD'}}</div>
-        <button (click)="addToCart()" class="btn btn-primary btn-sm">Add To Cart</button>
 
-        <hr>
-        <h4>Description</h4>
-        <p>{{product.productDescription}}</p>
+        <div class="row ">
+            <div class="col col-md-6">
+                <img src="{{product.imageURL}}">
+
+            </div>
+
+            <div class="col col-md-6 description">
+                <h3>{{product.productName}}</h3>
+                <p>{{product.productDescription}}</p>
+                <div class="detail-price mt-4 mb-5">{{product.productUnitPrice | currency : 'USD'}}</div>
+                <button (click)="addToCart()" class="add-to-cart">Add To Cart</button>
+                <p class="mt-5"><i class="fa-solid fa-truck"> </i>      FREE SHIPPING   WORLDWIDE</p>
+                
+            </div>
+        </div>
+        
+
+        
+
+    
+
 
         <a routerLink="/products" class="mt-5">Back</a>
     </div>
 </div>
-
-
