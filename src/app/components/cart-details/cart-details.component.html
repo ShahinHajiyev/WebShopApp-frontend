@@ -11,7 +11,7 @@
                     </tr>
                     <tr *ngFor="let temp of cartItems">
                         <td>
-                            <img src="{{temp.imageURL}}" class="img-responsive" width="150px" />
+                            <img src="{{temp.imageURL}}" class="img-responsive"  />
                         </td>
                         <td>
                             <p>{{temp.name}}</p>
@@ -41,7 +41,7 @@
                             </div>
                            
                             <div>
-                                <button (click)="remove(temp)" class="btn btn-primary btn-sm mt-2">Remove</button>
+                                <button (click)="remove(temp)" class="remove-btn mt-2">Remove</button>
                             </div>
                             <p class="mt-2">Subtotal: {{temp.quantity*temp.piecePrice | currency: 'USD'}}</p>
                         </td>
@@ -54,7 +54,7 @@
                             <P>Shipping : free</P>
                             <p>Total price: {{totalPrice | currency: 'USD'}}</p>
                             <div>
-                            <a routerLink="/checkout" class="btn btn-primary">Checkout</a>
+                            <a routerLink="/checkout" class="btn btn-primary checkout-btn">Checkout</a>
                         </div>
                         </td>
                     </tr>

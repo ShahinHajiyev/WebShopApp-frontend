@@ -2,11 +2,12 @@
     <div class="section-content section-content-p30">
         <div class="container-fluid">
 
-            <h3>Orders</h3>
+            <h3 align="center" class="pb-3">Orders</h3>
 
             <div *ngIf="orderHistoryList.length > 0">
                 <table class="table">
                    <tr>
+                       
                        <th >Order tracking number</th>
                        <th >Total price</th>
                        <th > Total quantity</th>
@@ -14,6 +15,7 @@
                    </tr>
 
                    <tr *ngFor="let orderHistory of orderHistoryList">
+                
                            <td>
                                {{orderHistory.orderTrackingNumber}}
                            </td>

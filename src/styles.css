@@ -1,0 +1,498 @@
+/* 
+ * ----------------------------
+ * Common CSS
+ * ----------------------------
+ */
+
+ html{
+     background: #cecbcb;
+ }
+
+ *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box
+}
+
+body{
+    margin:0;
+    padding:0;
+    font-family:Poppins,sans-serif;
+    font-weight:400;
+    font-size:16px;
+    line-height:1.625;
+    color:rgb(150, 36, 36);
+    
+}
+
+
+/*Layout Css*/
+.section-content-p35{
+    padding:0 35px
+}
+
+.page-wrapper{
+    overflow:hidden;
+    background:#cecbcb;
+    padding-bottom:8vh
+}
+
+.page-container{
+    background:#cecbcb7c;
+    padding-left: 200px;
+    
+}
+
+.main-content{
+    padding-top:116px;
+    padding-left: 200px;
+    padding-right: 100px;
+    min-height:100vh
+}
+
+/* 
+ * ----------------------------
+ * Header Desktop Section
+ * ----------------------------
+ */
+
+.header-desktop{
+    background:#000000;
+    box-shadow:0 2px 5px 0 rgba(0,0,0,.1);
+    position:fixed;
+    top:0;
+    right:0;
+    left:0;
+    height:50px;
+    z-index:3
+}
+
+.security-btn{
+    background: black !important;
+    border: 0px !important;
+    font-size: larger !important;
+}
+
+.header-desktop .section-content{
+    overflow:visible;
+    position:absolute;
+    top:50%;
+    left:0;
+    right:0;
+    transform:translateY(-50%)
+}
+
+.header-wrap{
+    display:flex;
+    align-items:center;
+    justify-content:space-between
+}
+
+
+
+.header-button{
+    display:flex;
+    align-items:center
+}
+
+.number{
+    padding:6px 0
+}
+
+.arrows i{
+    font-size:30px;
+    padding:4px 4px
+}
+
+section{
+    position:relative
+}
+
+.section-content{
+    position:relative;
+    margin:0 auto;
+    z-index:1
+}
+
+.section-content-p30{
+    padding:0 30px
+}
+
+.au-input-xl{
+    min-width:250px
+}
+
+input.au-input.au-input-xl{
+    border-radius:40px!important;
+    margin-right:15px
+}
+
+.au-input{
+    line-height:43px;
+    border:1px solid #e5e5e5;
+    font-size:14px;
+    color:#666;
+    padding:1 17px;
+    border-radius:3px;
+    transition:all .5s ease
+}
+
+.cart-area.d-n{
+    display:block
+}
+
+.cart-area i{
+    font-size:22px;
+    float:left;
+    margin-top:16px;
+    color:#fff;
+    margin-left:15px
+}
+
+.total{
+    background:#ffffff;
+    width: 50px;
+    height: 30px;
+    color:rgb(0, 0, 0);
+    border-radius:30px;
+    border:1px solid #000000;
+    float:left;
+    margin-top:7px;
+    padding-left:17px
+}
+
+.form-header{
+
+    margin-left: 200px;
+    
+}
+
+.au-btn-search{
+    position:relative;
+    right:0;
+    min-width:95px;
+    color:#fff;
+    border:1px solid #ff0a0a;
+    border-radius:43px;
+    background:#ff0a0a
+}
+
+.au-btn-submit:hover{
+    background:#05143f
+}
+
+.au-btn-submit>i{
+    font-size:20px;
+    color:#fff;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%)
+}
+
+/* 
+ * ----------------------------
+ * Left Menu Bar
+ * ----------------------------
+ */
+
+.menu-sidebar{
+    width:400px;
+    position:fixed;
+    top:110px;
+    bottom:0;
+    background:#ffffff00;
+    overflow-y:auto
+}
+
+.menu-sidebar ul{
+    float: right;
+}
+
+.icons{
+    display: inline;
+}
+
+.menu-sidebar ul li{
+    font-size: larger;
+    font-family:'Times New Roman', Times, serif;
+    margin-bottom: 15px;
+}
+
+
+.logo{
+    width: 100px !important;
+    padding-top: 40px;
+    display:flex;
+    align-items:center;
+    position:relative;
+    z-index:0
+}
+
+/* 
+ * ----------------------------
+ * Products List
+ * ----------------------------
+ */
+
+
+.product-box img {
+    width: 100%;
+    height:inherit;
+}
+
+
+.product-box{
+    height: 400px;
+    margin: 5px;
+    background-color: white;
+    float: left;
+    border-radius: 10px;
+}	
+
+
+.price{
+    text-align: center;
+    font-weight: bold;
+    margin:16px 0 0;
+    color:#ff4747;
+}
+
+
+.product-box h1{
+    padding: 15px;
+    text-align: center;
+    font-size:14px;
+    border-bottom:1px solid #ccc;
+    padding-bottom:5px;
+    font-weight:600;
+    padding-top:12px;
+    margin-bottom:7px
+}
+
+
+/* 
+ * ----------------------------
+ * Shopping Cart Checkout
+ * ----------------------------
+ */
+
+.form-area{
+    background:#ff8b8b;
+    position:relative;
+    margin-bottom:45px;
+    padding:50px 20px;
+    border:3px solid rgba(110, 5, 5, 0.384)
+}
+.form-area h3{
+    position:absolute;
+    top:-25px;
+    left:13px;
+    background:#e6e6e6;
+    padding:10px 20px;
+    font-weight:500;
+    z-index:23;
+    display:inline-block
+}
+
+.input-space{
+    margin-bottom:20px
+}
+
+.input-space label{
+    padding-left:31px;
+    font-size:14px;
+    margin-bottom:50px
+}
+
+.input-space input[type=text]{
+    width:100%;
+    height:40px;
+    border-radius:30px;
+    outline:0;
+    padding:10px;
+    border:1px solid #ccc
+}
+.input-space select{
+    width:100%;
+    height:40px;
+    border-radius:30px;
+    outline:0;
+    padding:0 10px;
+    border:1px solid #ccc
+}
+.au-checkbox{
+    display:block;
+    position:relative;
+    cursor:pointer;
+    font-size:22px;
+    user-select:none
+}
+.au-checkbox input{
+    position:absolute;
+    opacity:0;
+    cursor:pointer
+}
+.au-checkmark{
+    position:absolute;
+    top:0;
+    left:0;
+    height:22px;
+    width:22px;
+    background-color:#fff!important;
+    border:2px solid #e5e5e5;
+    border-radius:2px
+}
+
+
+/* 
+ * ----------------------------
+ * Shopping Cart Details
+ * ----------------------------
+ */
+
+
+ #card-element{
+     height: 45px;
+     background-color: white;
+ }
+
+.table{
+    margin:0
+}
+table.table.table-bordered{
+    border:1px solid #ccc;
+    background:#fff
+}
+.table-bordered td,.table-bordered th{
+    border:1px solid #dee2e6
+}
+table.table.table-bordered th{
+    BACKGROUND:#000000;
+    color:#fff;
+    font-size:14px;
+    padding:7px
+}
+.table-responsive{
+    padding-right:1px
+}
+
+.remove-btn{
+    position:relative;
+    right:0;
+    min-width:95px;
+    height: 30px;
+    color:rgb(0, 0, 0);
+    border:1px solid #000000;
+    border-radius:10px;
+    background:#ffffff
+}
+
+.checkout-btn {
+    min-width:95px;
+    height: 40px;
+    color:#fff;  
+}
+
+.btn-primary{
+    background:#ff0a0a !important;
+    border:1px solid #ff0a0a !important;
+    border-radius:20px !important; 
+
+}
+
+/* 
+ * ----------------------------
+ * Product Details
+ * ----------------------------
+ */
+
+
+.detail-section{
+    padding-left: 200px;
+    padding-right: 100px;
+    margin-top:0;
+    padding-top: 100px;
+}
+
+.detail-price{
+
+    font-weight: bold;
+    font-size: larger;
+
+}
+
+img{
+    max-width:100%;
+    height:auto
+}
+ 
+.add-to-cart{
+    
+    position:relative;
+    right:0;
+    min-width:95px;
+    height: 40px;
+    color:#fff;
+    border:1px solid #ff0a0a;
+    border-radius:3px;
+    background:#ff0a0a
+}
+
+.m{
+
+    margin-top: 100px;
+
+}
+
+.detail-section h4{
+    margin: 0;
+}
+
+.back{
+    float: right;
+    min-width:95px;
+    height: 40px;
+    color:#fff;
+    font-size: medium;
+    border:1px solid #ff0a0a;
+    border-radius:9px;
+    background:#ff0a0a
+    
+}
+
+.detail-section a{
+    text-align: center;
+}
+
+/* 
+ * ----------------------------
+ * Footer section
+ * ----------------------------
+ */
+
+footer ul li a{
+    color:#fff
+}
+footer{
+  
+    background:#232324;
+    z-index:10;
+    position:fixed;
+    width: 1600px;
+    bottom: 0;
+    height: 40px;
+    text-align:center
+    
+}
+footer li a{
+    color:#313131;
+    font-weight:500
+}
+footer ul li{
+    display:inline-block;
+    font-size:14px;
+    padding:10px 20px
+}
+
+

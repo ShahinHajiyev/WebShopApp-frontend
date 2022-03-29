@@ -1,3 +1,5 @@
+import { Product } from "./product";
+
 export class OrderHistory {
 
     id: string;
@@ -5,4 +7,10 @@ export class OrderHistory {
     totalPrice: number;
     totalQuantity: number;
     dateCreated: Date;
+    imageURL: string;
+
+    constructor(product:Product) {
+        this.imageURL = product.imageURL;
+    }
+
 }

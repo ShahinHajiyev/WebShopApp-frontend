@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { OktaAuthService } from '@okta/okta-angular';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-login-status',
@@ -14,7 +15,8 @@ export class LoginStatusComponent implements OnInit {
 
   storage: Storage = sessionStorage;
 
-  constructor(private oktaAuthService: OktaAuthService) { }
+  constructor(private oktaAuthService: OktaAuthService,
+              private cartService: CartService) { }
 
   ngOnInit(): void {
 
@@ -51,5 +53,8 @@ export class LoginStatusComponent implements OnInit {
   logout() {
     // Terminates the session with Okta and removes current tokens.
     this.oktaAuthService.signOut();
+
+    // Clear the session
+    this.storage.clear();
   }
 }
