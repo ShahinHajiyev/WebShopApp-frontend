@@ -70,7 +70,8 @@ return this.httpClient.get<ProductResponse>(searchingURL) ;
 
 interface ProductResponse{
      _embedded : { products : Product[];
-    },
+    }
+  
 
     page:{
       size:number,

@@ -54,7 +54,14 @@
                             <P>Shipping : free</P>
                             <p>Total price: {{totalPrice | currency: 'USD'}}</p>
                             <div>
-                            <a routerLink="/checkout" class="btn btn-primary checkout-btn">Checkout</a>
+
+
+                        <a *ngIf="!isAuthenticated" routerLink="/login"  class="btn btn-primary checkout-btn">Checkout</a>
+
+                         <a *ngIf="isAuthenticated" routerLink="/checkout"  class="btn btn-primary checkout-btn">Checkout</a>
+
+
+                
                         </div>
                         </td>
                     </tr>
